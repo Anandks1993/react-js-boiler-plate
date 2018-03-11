@@ -2,6 +2,10 @@
   "name": "react-js-boiler-plate",
   "version": "1.0.0",
   "description": "React JS boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Anandks1993/react-js-boiler-plate.git"
+  },
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot"
