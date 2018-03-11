@@ -3,7 +3,12 @@ const webpack = require('webpack');
 const Visualizer = require('webpack-visualizer-plugin');
 
 module.exports = {
-    entry: './main.js',
+    entry: {
+        app: [
+            'babel-polyfill',
+            './main.js',            
+        ],
+    },
     output: {
         path: __dirname,
         filename: 'bundle.js',
@@ -16,7 +21,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(jpe?g|png|gif|svg)$/i, // For the file image file importing
+                test: /\.(jpe?g|png|gif|svg|woff|woff2|ttf|eot)$/i, // For the file image file importing
                 use: 'file-loader',
             },
             {
