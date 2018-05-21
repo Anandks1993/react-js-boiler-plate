@@ -1,0 +1,34 @@
+.home {
+
+    &__img-wrapper {
+        position: relative;
+    }
+
+    &__image {
+        width: 100%;
+        height: 500px;
+    }
+
+    &__img-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.4);
+
+        &::before {
+            content: ' ';
+            display: block;
+            /* adjust 'height' to position overlay content vertically */
+            height: 50%;
+        }
+    }
+
+    &__message {
+        font-size: 24px;
+        color: #E8E3E3;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+    }
+}
