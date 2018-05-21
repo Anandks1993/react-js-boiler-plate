@@ -20,10 +20,10 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.(jpe?g|png|gif|svg|woff|woff2|ttf|eot)$/i, // For the file image file importing
-            //     use: 'file-loader',
-            // },
+            {
+                test: /\.(jpe?g|png|gif|svg|woff|woff2|ttf|eot)$/i, // For the file image file importing
+                use: 'file-loader',
+            },
             {
                 test: /\.jsx?$/, // To load jsx files, loader used is babel-loader, which transpiles jsx to js
                 loader: 'babel-loader',
