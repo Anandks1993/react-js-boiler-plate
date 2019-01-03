@@ -16,7 +16,10 @@ module.exports = {
     },
     devServer: {
         inline: true,
-        port: 8080
+    },
+    mode: 'development', // change mode to production on prod.
+    optimization: {
+        minimize: true
     },
     module: {
         rules: [
@@ -30,10 +33,13 @@ module.exports = {
                 exclude: /node_modules/,
                 query: {
                     plugins: [
-                        "transform-class-properties",
-                        "transform-object-rest-spread"
+                        "@babel/plugin-proposal-class-properties",
+                        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+                        "@babel/plugin-proposal-export-default-from",
+                        "@babel/plugin-proposal-export-namespace-from",
+                        "@babel/plugin-proposal-object-rest-spread"
                     ],
-                    presets: ['es2015', 'react'] // presets are required to tell webpack which version we are using.
+                    presets: ['@babel/preset-react', '@babel/preset-env'] // presets are required to tell webpack which version we are using.
                 }
             },
             {
@@ -55,10 +61,6 @@ module.exports = {
     plugins: [
         new Visualizer({
             filename: './statistics.html' // statistics.html will view the bundle.js usages.
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            include: /\.min\.js$/,
-            minimize: true
         }),
     ],
 };

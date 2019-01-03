@@ -8,7 +8,6 @@ class App extends Component {
                     backgroundColor: '#000000',
                     color: 'white',
                     textAlign: 'center',
-                    fontFamily: 'monospace',
                     height: '200px',
                     fontSize: '50px',
                     display: 'flex',
