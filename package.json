@@ -16,7 +16,7 @@
     "@babel/polyfill": "^7.2.5",
     "bem-cn": "^2.1.3",
     "history": "^4.7.2",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.15",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -40,13 +40,13 @@
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
-    "css-loader": "^0.28.9",
+    "css-loader": "^3.2.0",
     "file-loader": "^1.1.6",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
-    "webpack": "^4.28.3",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.2.0",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.9.0"
   }
 }
