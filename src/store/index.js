@@ -1,13 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk  from 'redux-thunk';
-import { reducer as formReducer } from 'redux-form';
 
 /**
  * combineReducers is simply a utility function to simplify the most common use case when writing Redux reducers.
  * It takes an object full of slice reducer functions, and returns a new reducer function
  */
 const rootReducer = combineReducers({
-    formReducer,
+    // add your reducers here to combine reducers.
 });
 
 /**
@@ -15,7 +14,7 @@ const rootReducer = combineReducers({
  * There should only be a single store in your app.
  */
 const store = createStore(
-    rootReducer,
+    // rootReducer, // uncomment once you start adding reducers.
     /**
      * compose: Composes functions from right to left.
      *          The final function obtained by composing the given functions from right to left.

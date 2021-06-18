@@ -1,39 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import { Route, BrowserRouter } from 'react-router-dom';
 
-import store from './src/store';
+import store from 'store';
 
-import './src/assets/common_styles/style.scss';
+import 'assets/common_styles/style.scss';
 
-class App extends Component {
+const App = () => {
+    const [message, setMessage] = useState('Welcome to React JS Boilerplate!!!');
 
-    state = {
-        message: 'Welcome to React JS Boilerplate!!!',
-    }
-
-    render() {
-        return (
-            <Provider store={store}>
-                <BrowserRouter>
-                    <div style={{
-                        backgroundColor: '#000000',
-                        color: 'white',
-                        textAlign: 'center',
-                        height: '200px',
-                        fontSize: '50px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}>
-                        <div>
-                            {this.state.message}
-                        </div>
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <div style={{
+                    backgroundColor: '#000000',
+                    color: 'white',
+                    textAlign: 'center',
+                    height: '200px',
+                    fontSize: '50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}>
+                    <div>
+                        {message}
                     </div>
-                </BrowserRouter>
-            </Provider>
-        );
-   }
+                </div>
+            </BrowserRouter>
+        </Provider>
+    );
 }
 
 export default App;

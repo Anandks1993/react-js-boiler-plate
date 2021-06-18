@@ -48,6 +48,12 @@ module.exports = {
         ],
     },
     resolve: {
+        /**
+         * modules: [path.resolve(__dirname, '../src'), 'node_modules'], // used to make use of absolute import
+         * Example:The folders under src folder will act as absolute paths. Consider there is assets folder under
+         * src folder to import style.css under style folder inside assets folder, you can simply write
+         * import 'assets/style/style.css' instead of moving to folders with relative import.
+         */
         modules: [path.resolve(__dirname, '../src'), 'node_modules'], // used to make use of absolute import
         extensions: ['*', '.js', '.jsx', '.json'],
     },
@@ -55,7 +61,8 @@ module.exports = {
         new CleanWebpackPlugin(['dist/*']),
         new HtmlWebpackPlugin({
             template: 'index.html',
-            favicon: 'favicon.ico' //Specify the path of the favicon here
+            favicon: 'favicon.ico', //Specify the path of the favicon here,
+            inject: false // added this config to remove “Only one instance of babel-polyfill is allowed” error
         })
     ]
 };
