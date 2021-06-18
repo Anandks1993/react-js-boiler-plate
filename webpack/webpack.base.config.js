@@ -1,11 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
         app: [
-            'babel-polyfill',
             './main.js',
         ],
     },
@@ -24,7 +23,7 @@ module.exports = {
                 test: /\.jsx?$/, // To load jsx files, loader used is babel-loader, which transpiles jsx to js
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                query: {
+                options: {
                     plugins: [
                         ["@babel/plugin-proposal-decorators", { "legacy": true }],
                         "@babel/plugin-proposal-class-properties",
@@ -58,7 +57,7 @@ module.exports = {
         extensions: ['*', '.js', '.jsx', '.json'],
     },
     plugins: [
-        new CleanWebpackPlugin(['dist/*']),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: 'index.html',
             favicon: 'favicon.ico', //Specify the path of the favicon here,

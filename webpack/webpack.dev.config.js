@@ -18,5 +18,5 @@ module.exports = merge(base, {
             }
         })
     ],
-    devtool: '#eval-source-map', // To show console output from original file instead of showing from bundle file
+    devtool: 'eval-source-map', // To show console output from original file instead of showing from bundle file
 });
