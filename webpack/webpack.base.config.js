@@ -1,25 +1,17 @@
 const path = require('path');
-const webpack = require('webpack');
-const Visualizer = require('webpack-visualizer-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
         app: [
-            'babel-polyfill',
-            './main.js',            
+            './main.js',
         ],
     },
     output: {
-        path: __dirname,
+        path: path.resolve(__dirname, '../dist'),
         filename: 'bundle.js',
         publicPath: '/'
-    },
-    devServer: {
-        inline: true,
-    },
-    mode: 'development', // change mode to production on prod.
-    optimization: {
-        minimize: true
     },
     module: {
         rules: [
@@ -31,10 +23,10 @@ module.exports = {
                 test: /\.jsx?$/, // To load jsx files, loader used is babel-loader, which transpiles jsx to js
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                query: {
+                options: {
                     plugins: [
-                        "@babel/plugin-proposal-class-properties",
                         ["@babel/plugin-proposal-decorators", { "legacy": true }],
+                        "@babel/plugin-proposal-class-properties",
                         "@babel/plugin-proposal-export-default-from",
                         "@babel/plugin-proposal-export-namespace-from",
                         "@babel/plugin-proposal-object-rest-spread"
@@ -55,14 +47,23 @@ module.exports = {
         ],
     },
     resolve: {
-        modules: [path.resolve(__dirname, 'src'), 'node_modules'], // used to make use of absolute import
+        /**
+         * modules: [path.resolve(__dirname, '../src'), 'node_modules'], // used to make use of absolute import
+         * Example:The folders under src folder will act as absolute paths. Consider there is assets folder under
+         * src folder to import style.css under style folder inside assets folder, you can simply write
+         * import 'assets/style/style.css' instead of moving to folders with relative import.
+         */
+        modules: [path.resolve(__dirname, '../src'), 'node_modules'], // used to make use of absolute import
         extensions: ['*', '.js', '.jsx', '.json'],
     },
     plugins: [
-        new Visualizer({
-            filename: './statistics.html' // statistics.html will view the bundle.js usages.
-        }),
-    ],
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'index.html',
+            favicon: 'favicon.ico', //Specify the path of the favicon here,
+            inject: false // added this config to remove “Only one instance of babel-polyfill is allowed” error
+        })
+    ]
 };
 
 // Note: In production check sass-loader once.

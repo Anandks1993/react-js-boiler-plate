@@ -13,7 +13,7 @@ You can initialize state as class objects. Do not need to initialize state insid
 class MyComponent extends Component {
   state = {
     sum: 0,
-  }  
+  }
   ...
 }
 ```
@@ -42,8 +42,8 @@ You can import css, scss (or) sass, image, style into your js files directly. It
 
 Hot reloading while editing files, and it reloads even non-index url 😉
 
-### Redux and Redux Form
+### Redux
 
-This boiler plate comes with **Redux** adn **Redux-Form** installed to use readily
+This boiler plate comes with **Redux** installed to use readily
 
 > And much more
