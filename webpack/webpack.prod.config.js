@@ -1,7 +1,8 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const base = require('./webpack.base.config');
-const Visualizer = require('webpack-visualizer-plugin');
+const Visualizer = require('webpack-visualizer-plugin2');
+// webpack-visualizer-plugin is not working with webpack v5 so use webpack-visualizer-plugin2.
 const config = require('./env.config');
 
 module.exports = merge(base, {
